@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>New message</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Guestbook Application v.1</h1>
+            <p>Guestbook application allows users to add messages to a public guestbook page. Messages will be saved to a JSON file. Using mainly Bootstrap for styling etc.</p>
+          </div>
+
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/guestbook">Guestbook</a></li>
+                <li class="active"><a href="/newmessage">New message</a></li>
+                <li><a href="/ajaxmessage">AJAX message</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <form method="post" action="/newmessage">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example1">Name:</label>
+                    <input type="text" name="name" id="form4Example1" class="form-control" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example2">Country:</label>
+                    <input type="text" name="country" id="form4Example2" class="form-control" />
+                </div>
+            
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example3">Message:</label>
+                    <textarea name="message" class="form-control" id="form4Example3" rows="4"></textarea>
+                </div>
+
+                <button type="submit" value="submit" class="btn btn-primary btn-block mb-4">Send</button>
+          </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>AJAX message</title>
+</head>
+<script>
+    window.onload = (event) => {
+        var sendButton = document.getElementById("myButton");
+        sendButton.addEventListener("click", function(){
+
+            var name = document.getElementById("name").value;
+            var country = document.getElementById("country").value;
+            var message = document.getElementById("message").value;
+
+            console.log(name);
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("status").innerHTML = this.responseText;
+                    console.log(this.responseText);
+                };
+            };
+
+            xmlhttp.open("POST", "/ajaxmessage", true);
+            xmlhttp.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded"
+            );
+            xmlhttp.send("name=" + name + "country=" + country + "&message=" + message);
+        });
+    };
+</script>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Guestbook Application v.1</h1>
+            <p>Guestbook application allows users to add messages to a public guestbook page. Messages will be saved to a JSON file. Using mainly Bootstrap for styling etc.</p>
+          </div>
+
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/guestbook">Guestbook</a></li>
+                <li><a href="/newmessage">New message</a></li>
+                <li class="active"><a href="/ajaxmessage">AJAX message</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <form method="post" action="/ajaxmessage">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example1">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" />
+                </div>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example2">Country:</label>
+                    <input type="text" id="name" name="country" class="form-control" />
+                </div>
+            
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example3">Message:</label>
+                    <textarea name="message" id="name" class="form-control" rows="4"></textarea>
+                </div>
+
+                <button type="button" id="myButton" value="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                <div id="status" class="form-control"></div>
+          </form>
+    </div>
+</body>
+</html>
