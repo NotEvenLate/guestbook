@@ -69,7 +69,7 @@ app.post('/ajaxmessage', function(req, res){
     console.log(name);
 
     res.send("Form was submitted: " + name + " " + country + " " + message);
-})
+});
 
 
 // Error message
