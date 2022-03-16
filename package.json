@@ -9,7 +9,7 @@
   },
   "name": "guestbook",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app/index.js",
   "devDependencies": {},
   "repository": {
     "type": "git",
