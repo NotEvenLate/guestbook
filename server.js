@@ -1,7 +1,6 @@
 var express = require('express');
 var fs = require('fs');
 var app = express();
-require("dotenv").config();
 
 // Root
 app.use(express.static('/public'));
