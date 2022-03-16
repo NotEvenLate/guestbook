@@ -37,8 +37,6 @@ app.get('/newmessage', function(req, res){
 });
 
 var bodyParser = require('body-parser');
-const { response } = require('express');
-const { emitWarning } = require('process');
 app.use(bodyParser.urlencoded({ extended: true}));
 
 app.post('/newmessage', function(req, res){
