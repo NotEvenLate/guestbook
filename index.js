@@ -1,6 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var app = express();
+var dotenv = require('dotenv');
 
 // Root
 app.use(express.static('/public'));
@@ -79,5 +80,9 @@ app.get('*', function(req, res){
 
 
 // Listen port 8081
-app.listen(8081, function(){
-});
+//app.listen(8081, function(){
+//});
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
